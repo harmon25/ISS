@@ -8,6 +8,8 @@ import re
 
 def print_page():
 	print '''
+	Content-type: text/html\n\n
+
 	<html lang="en">
 	<head>
 		<title>XSS Test Page</title>
@@ -37,9 +39,11 @@ def print_page():
 
 	</html>
 	'''
-print "Content-type: text/html\n\n"
+
 form = cgi.FieldStorage()
 if (form.has_key("submit")):
 	user_input=get_form(form)
 else:
 	print_page()
+
+
